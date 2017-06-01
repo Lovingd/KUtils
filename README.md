@@ -4,11 +4,13 @@ android快速开发常用第三方库整合,集成了优雅的日志打印(可�
 
  # 一. 新增KLog 日志打印
 
-    ## 使用方式:![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/KLogImage.png)
+    ## 使用方式:
+    ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/KLogImage.png)
+
     ```Java
     KLog.init(BuildConfig.LOG_DEBUG, "KLog");
     ```
- 二. 新增EventBus事件分发
+# 二. 新增EventBus事件分发
 
     使用:Screenshot - MainAty.png   TwoAty.png
     ```Java
