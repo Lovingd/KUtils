@@ -37,12 +37,13 @@ android快速开发常用第三方库整合,集成了优雅的日志打印(可�
 
 
 # 三. 新增okgo网络访问
+
 ## 使用方式:
-- [OkRx使用文档](https://github.com/jeasonlzy/OkGO/blob/master/README_RX.md)
-    Word - REDEME_OKGO,README_OKGO_JSONCALLBACK,README_OKGO_RX
+- [OkGo详细使用文档](https://github.com/devzwy/KUtils/raw/master/Word/REDEME_OKGO)
 
 # 四. 新增BaseQuicklyAdapter
 
-    使用:请查看Sample 详细使用请参照  Word -  README_BaseQuicklyAdapter
+## 使用方式:
+- [BaseQuicklyAdapter详细使用文档](https://github.com/devzwy/KUtils/raw/master/Word/README_BaseQuicklyAdapter)
 
-    Luban   preferences
+   #### Luban   preferences
