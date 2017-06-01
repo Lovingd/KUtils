@@ -11,6 +11,8 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.AbsCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +26,8 @@ import cn.kutils.klog.KLog;
 import cn.kutils.sample.adapter.MyAdapter;
 import cn.kutils.sample.bean.MainTab;
 import cn.kutils.sample.bean.User;
+import okhttp3.Call;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -115,6 +119,17 @@ public class MainActivity extends AppCompatActivity {
     @Subscriber()
     public void OnEventBus(User user) {
         KLog.d("EventBus未使用tag收到User:" + user);
+        OkGo.post("url").params("key","v").execute(new AbsCallback<User>() {
+            @Override
+            public void onSuccess(User user, Call call, Response response) {
+
+            }
+
+            @Override
+            public User convertSuccess(Response response) throws Exception {
+                return null;
+            }
+        });
     }
 
 
