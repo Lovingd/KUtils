@@ -39,10 +39,11 @@ android快速开发常用第三方库整合,集成了优雅的日志打印(可�
 # 三. 新增okgo网络访问
 
 ## 使用方式:
-- [OkGo详细使用文档](https://github.com/devzwy/KUtils/blob/master/REDEME.md)
+- ![OkGo详细使用文档](https://github.com/devzwy/KUtils/blob/master/REDEME.md)
+
 # 四. 新增BaseQuicklyAdapter
 
 ## 使用方式:
-- [BaseQuicklyAdapter详细使用文档](https://github.com/devzwy/KUtils/raw/master/Word/README_BaseQuicklyAdapter)
+- ![BaseQuicklyAdapter详细使用文档](https://github.com/devzwy/KUtils/raw/master/Word/README_BaseQuicklyAdapter)
 
    #### Luban   preferences
