@@ -5,10 +5,12 @@ android快速开发常用第三方库整合,集成了优雅的日志打印(可�
  # 一. 新增KLog 日志打印
  ## 使用方式:
  ```Java
+     //全局只需初始化一次
      KLog.init(BuildConfig.LOG_DEBUG, "KLog");
+
      KLog.d("");
-     KLog.xml("");
-     KLog.json("");
+     KLog.xml("");//打印xml数据 自动格式化   看图
+     KLog.json("");//打印json数据 自动格式化 看图
   ```
   ## 效果图
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/KLogImage.png)
