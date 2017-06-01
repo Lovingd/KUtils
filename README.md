@@ -15,8 +15,8 @@ android快速开发常用第三方库整合,集成了优雅的日志打印(可�
 
 # 二. 新增EventBus事件分发
 
-    ## 使用方式:
-     ```Java
+## 使用方式:
+```Java
         //注册监听
          EventBus.getDefault().register(this);
          //发出事件
@@ -28,14 +28,14 @@ android快速开发常用第三方库整合,集成了优雅的日志打印(可�
              }
           //注销事件
          EventBus.getDefault().unregister(this);
-        ```
-   ## 效果图
+```
+## 效果图
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/MainAty.png)
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/TwoAty.png)
 
 
 # 三. 新增okgo网络访问
- ## 使用方式:
+## 使用方式:
 
     Word - REDEME_OKGO,README_OKGO_JSONCALLBACK,README_OKGO_RX
 
