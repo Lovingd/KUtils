@@ -1,4 +1,4 @@
-KUtils(代码来源第三方,只做代码搬运工)
+KUtils(代码来源第三方,只做代码搬运工) 即将更新:图片,视频选择库,鲁班图片压缩.图片九宫格展示以及常用view和视频处理库.
 ========
 android快速开发常用第三方库整合,集成了优雅的日志打印(可自动格式化json,xml,日志输出无字符长度4000的限制),两行代码调用EventBus事件分发,okgo网络访问一行代码实现文件上传下载带进度,上送json xml 等参数,可设置缓存模式以及SSL认证等,万能的RecyclerView适配器BaseQuicklyAdapter,实现上啦刷新,下拉加载,item不同布局,一行代码设置头布局和脚布局.
 
@@ -173,4 +173,5 @@ public abstract class MyAdapter extends BaseQuickAdapter<MainTab,BaseViewHolder>
 ```
 - [BaseQuicklyAdapter详细使用文档](https://github.com/devzwy/KUtils/raw/master/Word/README_BaseQuicklyAdapter)
 
+### 同行共同探讨技术可加我 QQ3648415
    #### Luban   preferences
