@@ -6,36 +6,40 @@ android快速开发常用第三方库整合,集成了优雅的日志打印(可�
  ## 使用方式:
  ```Java
      KLog.init(BuildConfig.LOG_DEBUG, "KLog");
+     KLog.d("");
+     KLog.xml("");
+     KLog.json("");
   ```
   ## 效果图
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/KLogImage.png)
 
-
-
-
 # 二. 新增EventBus事件分发
 
-    使用:Screenshot - MainAty.png   TwoAty.png
-    ```Java
-    //注册监听
-     EventBus.getDefault().register(this);
-     //发出事件
-     EventBus.getDefault().post(new User("张三",26),"张三");
-      //接收事件
-     @Subscriber(tag = "张三", mode = ThreadMode.MAIN)
-         public void OnEventBus_ZhangSan(User user) {
-             KLog.d("EventBus使用tag张三接收到User:" + user);
-         }
-      //注销事件
-     EventBus.getDefault().unregister(this);
-    ```
+    ## 使用方式:
+     ```Java
+        //注册监听
+         EventBus.getDefault().register(this);
+         //发出事件
+         EventBus.getDefault().post(new User("张三",26),"张三");
+          //接收事件
+         @Subscriber(tag = "张三", mode = ThreadMode.MAIN)
+             public void OnEventBus_ZhangSan(User user) {
+                 KLog.d("EventBus使用tag张三接收到User:" + user);
+             }
+          //注销事件
+         EventBus.getDefault().unregister(this);
+        ```
+   ## 效果图
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/MainAty.png)
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/TwoAty.png)
 
 
- 三. 新增okgo网络访问
+# 三. 新增okgo网络访问
+ ## 使用方式:
 
-    使用:Word - REDEME_OKGO,README_OKGO_JSONCALLBACK,README_OKGO_RX
+    Word - REDEME_OKGO,README_OKGO_JSONCALLBACK,README_OKGO_RX
 
- 四. 新增BaseQuicklyAdapter
+# 四. 新增BaseQuicklyAdapter
 
     使用:请查看Sample 详细使用请参照  Word -  README_BaseQuicklyAdapter
 
