@@ -306,13 +306,17 @@ allprojects {
 ```Java
                 //构造配置参数
                 BoxingConfig config = new BoxingConfig(BoxingConfig.Mode.MULTI_IMG); // Mode：Mode.SINGLE_IMG, Mode.MULTI_IMG, Mode.VIDEO
-                config.needCamera(R.mipmap.ic_launcher).needGif().withMaxCount(9); // 支持gif，相机，设置最大选图数
+                config.needCamera(R.mipmap.ic_launcher_round).needGif().withMaxCount(9); // 支持gif，相机，设置最大选图数
 //            .withMediaPlaceHolderRes(resInt) // 设置默认图片占位图，默认无
 //            .withAlbumPlaceHolderRes(resInt) // 设置默认相册占位图，默认无
 //             .withVideoDurationRes(resInt) // 视频模式下，时长的图标，默认无
 //                初始化Boxing，构造Intent并启动
                 Boxing.of(config).withIntent(this, BoxingActivity.class).start(this, REQUESTCODE_1);
 ```
+- 效果图
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/i1.png)
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/i2.png)
+
 - 打开图片选择器(单选带裁剪功能)
 ```Java
 
@@ -327,17 +331,21 @@ allprojects {
                                 .appendPath(String.format(Locale.US, "%s.jpg", System.currentTimeMillis()))
                                 .build();
                         BoxingConfig singleCropImgConfig = new BoxingConfig(BoxingConfig.Mode.SINGLE_IMG).withCropOption(new BoxingCropOption(destUri))
-                                .withMediaPlaceHolderRes(R.mipmap.ic_launcher);
+                                .withMediaPlaceHolderRes(R.mipmap.ic_launcher_round);
                         Boxing.of(singleCropImgConfig).withIntent(this, BoxingActivity.class).start(this, REQUESTCODE_3);
 ```
-
+- 效果图
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ii1.png)
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ii2.png)
 
 - 打开视频选择器
 ```Java
       //启动视频选择
-                    BoxingConfig videoConfig = new BoxingConfig(BoxingConfig.Mode.VIDEO).withVideoDurationRes(R.mipmap.ic_launcher);
+                    BoxingConfig videoConfig = new BoxingConfig(BoxingConfig.Mode.VIDEO).withVideoDurationRes(R.mipmap.ic_launcher_round);
                     Boxing.of(videoConfig).withIntent(this, BoxingActivity.class).start(this, REQUESTCODE_2);
 ```
+- 效果图
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/iii1.png)
 #### 6 取结果
 ```Java
 

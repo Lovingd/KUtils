@@ -54,7 +54,7 @@ public class MediaUseAty extends AppCompatActivity {
             case R.id.bt_1:
                 //构造配置参数
                 BoxingConfig config = new BoxingConfig(BoxingConfig.Mode.MULTI_IMG); // Mode：Mode.SINGLE_IMG, Mode.MULTI_IMG, Mode.VIDEO
-                config.needCamera(R.mipmap.ic_launcher).needGif().withMaxCount(9); // 支持gif，相机，设置最大选图数
+                config.needCamera(R.mipmap.ic_launcher_round).needGif().withMaxCount(9); // 支持gif，相机，设置最大选图数
 //            .withMediaPlaceHolderRes(resInt) // 设置默认图片占位图，默认无
 //            .withAlbumPlaceHolderRes(resInt) // 设置默认相册占位图，默认无
 //             .withVideoDurationRes(resInt) // 视频模式下，时长的图标，默认无
@@ -64,7 +64,7 @@ public class MediaUseAty extends AppCompatActivity {
                 break;
             case R.id.bt_2:
                 //启动视频选择
-                BoxingConfig videoConfig = new BoxingConfig(BoxingConfig.Mode.VIDEO).withVideoDurationRes(R.mipmap.ic_launcher);
+                BoxingConfig videoConfig = new BoxingConfig(BoxingConfig.Mode.VIDEO).withVideoDurationRes(R.mipmap.ic_launcher_round);
                 Boxing.of(videoConfig).withIntent(this, BoxingActivity.class).start(this, REQUESTCODE_2);
 
                 break;
@@ -80,7 +80,7 @@ public class MediaUseAty extends AppCompatActivity {
                         .appendPath(String.format(Locale.US, "%s.jpg", System.currentTimeMillis()))
                         .build();
                 BoxingConfig singleCropImgConfig = new BoxingConfig(BoxingConfig.Mode.SINGLE_IMG).withCropOption(new BoxingCropOption(destUri))
-                        .withMediaPlaceHolderRes(R.mipmap.ic_launcher);
+                        .withMediaPlaceHolderRes(R.mipmap.ic_launcher_round);
                 Boxing.of(singleCropImgConfig).withIntent(this, BoxingActivity.class).start(this, REQUESTCODE_3);
                 break;
         }
