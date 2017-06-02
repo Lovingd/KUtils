@@ -235,7 +235,7 @@ KUtils(代码来源第三方,只做代码搬运工) 即将更新:图片,视频�
         }
 ```
 ## 使用RecyclerView和BaseQuickAdapter实现的瀑布流效果图 调用请查看sample 几行代码调用(Glide加载图片只需一行代码即可)
-- 瀑布流效果图
+- 瀑布流效果图<br />
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/cccc.png)
 
 # 六.新增多媒体选择库
@@ -337,8 +337,8 @@ allprojects {
                         Boxing.of(singleCropImgConfig).withIntent(this, BoxingActivity.class).start(this, REQUESTCODE_3);
 ```
 - 效果图<br />
-![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ii1.png)
-<br />
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ii1.png)<br />
+
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ii2.png)
 
 - 打开视频选择器
