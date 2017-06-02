@@ -217,8 +217,8 @@ public abstract class MyAdapter extends BaseQuickAdapter<MainTab,BaseViewHolder>
             ViewGroup.LayoutParams layoutParams = (imageView).getLayoutParams();
             //设置高度
             layoutParams.height = height;
-            //使用Glide加载图片
-            Glide.with(BeautyPicturesActivity.this).load(item).into(imageView);
+            //使用Glide加载图片 placeholder参数为加载失败时显示的默认图片
+            Glide.with(BeautyPicturesActivity.this).load(item).placeholder(R.mipmap.ic_launcher).into(imageView);
         }
     }
 ```
