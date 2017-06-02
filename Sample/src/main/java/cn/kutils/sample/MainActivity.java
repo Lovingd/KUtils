@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
@@ -27,6 +28,7 @@ import cn.kutils.klog.KLog;
 import cn.kutils.sample.adapter.MyAdapter;
 import cn.kutils.sample.bean.MainTab;
 import cn.kutils.sample.bean.User;
+import cn.kutils.view.CircleImageView;
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -34,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.rv_main)
     RecyclerView mRvMain;
+
+    @Bind(R.id.civ)
+    CircleImageView mCiv;
+
+
     private MyAdapter mAdapter = new MyAdapter(R.layout.item_main_tab, null) {
         @Override
         protected void convert(BaseViewHolder helper, MainTab item) {
@@ -51,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
         EventBus.getDefault().register(this);
         KLog.d("EventBus在MainActivity中注册成功");
         initAdaater();
+        Glide.with(this)
+                .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496372638951&di=be636f1362f06d68b902b8115cda13dc&imgtype=0&src=http%3A%2F%2Fd.5857.com%2Fxgs_150428%2Fdesk_005.jpg")
+                .into(mCiv);
     }
 
     private void initAdaater() {
@@ -122,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     @Subscriber()
     public void OnEventBus(User user) {
         KLog.d("EventBus未使用tag收到User:" + user);
-        OkGo.post("url").params("key","v").execute(new AbsCallback<User>() {
+        OkGo.post("url").params("key", "v").execute(new AbsCallback<User>() {
             @Override
             public void onSuccess(User user, Call call, Response response) {
 

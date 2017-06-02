@@ -401,7 +401,7 @@ allprojects {
 
 
 # 八.新增activity管理类
-## 使用方式同:
+## 使用方式:
 ##### 在BaseActivty的onCreate()和onDestroy()中添加如下代码:
 ```Java
     @Override
@@ -420,7 +420,22 @@ allprojects {
     AppManager.getAppManager().AppExit(this);
 ```
 
+# 八.新增android端加解密工具类
+## 使用方式(待编码):
 
 
+# 九.新增CircleImageView圆角用户头像
+## 使用方式同ImageView:
+```Java
+       <cn.kutils.view.CircleImageView
+                   android:id="@+id/civ"
+                   android:layout_width="60dp"
+                   android:layout_height="60dp"
+                   android:layout_centerInParent="true"
+                   app:border_color="@color/boxing_black1"
+                   app:border_width="2dp"/>
+```
++ 效果图 <br/>
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ci.png)
 ### 同行共同探讨技术可加我 QQ3648415
    ##### 缺少: 对话框 进度条 时间日期选择控件 九图预览 鲁班压缩 android6.0动态权限检测 共享参数 沉浸式状态栏 自定义toast 侧滑关闭页面  
