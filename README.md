@@ -176,7 +176,8 @@ public abstract class MyAdapter extends BaseQuickAdapter<MainTab,BaseViewHolder>
 
 
 # 五. 新增Glide加载图片 一行代码
-##实现代码
+
+## 实现代码
 ```Java
  private void initAdapter() {
         mAdapter = new MyAdapter(null);
@@ -223,7 +224,8 @@ public abstract class MyAdapter extends BaseQuickAdapter<MainTab,BaseViewHolder>
     }
 ```
 ## 使用RecyclerView和BaseQuickAdapter实现的瀑布流效果图 调用请查看sample 几行代码调用(Glide加载图片只需一行代码即可)
-![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ccc.png)
+
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/cccc.png)
 
 
 ### 同行共同探讨技术可加我 QQ3648415
