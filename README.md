@@ -438,4 +438,4 @@ allprojects {
 + 效果图 <br/>
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ci.png)
 ### 同行共同探讨技术可加我 QQ3648415
-   ##### 缺少: 对话框 进度条 时间日期选择控件 九图预览 鲁班压缩 android6.0动态权限检测 共享参数 沉浸式状态栏 自定义toast 侧滑关闭页面  
+   ##### 缺少: 对话框 进度条 时间日期选择控件 九图预览 鲁班压缩 android6.0动态权限检测 共享参数 沉浸式状态栏 自定义toast 侧滑关闭页面   视频播放

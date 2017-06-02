@@ -20,6 +20,7 @@
             android:layout_centerInParent="true"
             app:border_color="@color/boxing_black1"
             app:border_width="2dp"/>
+
     </RelativeLayout>
 
     <View
