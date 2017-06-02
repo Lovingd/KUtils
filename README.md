@@ -235,7 +235,7 @@ KUtils(代码来源第三方,只做代码搬运工) 即将更新:图片,视频�
         }
 ```
 ## 使用RecyclerView和BaseQuickAdapter实现的瀑布流效果图 调用请查看sample 几行代码调用(Glide加载图片只需一行代码即可)
-
+- 瀑布流效果图
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/cccc.png)
 
 # 六.新增多媒体选择库
@@ -313,8 +313,10 @@ allprojects {
 //                初始化Boxing，构造Intent并启动
                 Boxing.of(config).withIntent(this, BoxingActivity.class).start(this, REQUESTCODE_1);
 ```
-- 效果图
+- 效果图<br />
+
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/i1.png)
+<br />
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/i2.png)
 
 - 打开图片选择器(单选带裁剪功能)
@@ -334,8 +336,9 @@ allprojects {
                                 .withMediaPlaceHolderRes(R.mipmap.ic_launcher_round);
                         Boxing.of(singleCropImgConfig).withIntent(this, BoxingActivity.class).start(this, REQUESTCODE_3);
 ```
-- 效果图
+- 效果图<br />
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ii1.png)
+<br />
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ii2.png)
 
 - 打开视频选择器
@@ -344,7 +347,7 @@ allprojects {
                     BoxingConfig videoConfig = new BoxingConfig(BoxingConfig.Mode.VIDEO).withVideoDurationRes(R.mipmap.ic_launcher_round);
                     Boxing.of(videoConfig).withIntent(this, BoxingActivity.class).start(this, REQUESTCODE_2);
 ```
-- 效果图
+- 效果图<br />
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/iii1.png)
 
 #### 6 取结果
