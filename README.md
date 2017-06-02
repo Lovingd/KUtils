@@ -9,7 +9,7 @@ KUtils(代码来源第三方,只做代码搬运工) 妹子 可以交个朋友嘛
 
 ![image](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496376464576&di=9a90e5111b3c5b3638073b6cc379e4da&imgtype=0&src=http%3A%2F%2Faliimg.changba.com%2Fcache%2Fphoto%2F128116118_640_640.jpg)
 
-进入重点..android快速开发常用第三方库整合,集成了优雅的日志打印(可自动格式化json,xml,日志输出无字符长度4000的限制),两行代码调用EventBus事件分发,okgo网络访问一行代码实现文件上传下载带进度,上送json xml 等参数,可设置缓存模式以及SSL认证等,万能的RecyclerView适配器BaseQuicklyAdapter,实现上啦刷新,下拉加载,item不同布局,一行代码设置头布局和脚布局.
+进入重点..android快速开发常用第三方库整合,集成了优雅的日志打印(可自动格式化json,xml,日志输出无字符长度4000的限制),两行代码调用EventBus事件分发,okgo网络访问一行代码实现文件上传下载带进度,上送json xml 等参数,可设置缓存模式以及SSL认证等,万能的RecyclerView适配器BaseQuicklyAdapter,实现上啦刷新,下拉加载,item不同布局,一行代码设置头布局和脚布局.瀑布流,多媒体选择库,photoview图片预览,activity管理类,android端加解密工具类,CircleImageView圆角用户头像,android6.0权限检测
 
 
  # 一. 新增KLog 日志打印
@@ -420,11 +420,11 @@ allprojects {
     AppManager.getAppManager().AppExit(this);
 ```
 
-# 八.新增android端加解密工具类
+# 九.新增android端加解密工具类
 ## 使用方式(待编码):
 
 
-# 九.新增CircleImageView圆角用户头像
+# 十.新增CircleImageView圆角用户头像
 ## 使用方式同ImageView:
 ```Java
        <cn.kutils.view.CircleImageView
@@ -438,7 +438,7 @@ allprojects {
 + 效果图 <br/>
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ci.png)</br>
 
-# 九.新增android6.0权限检测
+# 十一.新增android6.0权限检测
 ## 使用方式:
 - 在清单文件配置所需activity
 ```Java
@@ -489,12 +489,15 @@ allprojects {
             }
         };
 ```
+- 未授予的权限日志输出:
 ```Java
     D/KLog: [ (MainActivity.java:191)#onPermissionDenied ] 未授予的权限:[android.permission.READ_PHONE_STATE, android.permission.CALL_PHONE]
 ```
-- 效果图</br>
+- 效果图,依次弹出声明所需的权限</br>
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/t3.png)</br>
+- 如果有声明的权限未授予时弹出如下页面
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/t1.png)</br>
+- 点击设置按钮后自动跳转如下授权页面
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/t2.png)</br>
 
 
