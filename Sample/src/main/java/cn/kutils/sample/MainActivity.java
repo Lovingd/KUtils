@@ -1,10 +1,12 @@
 package cn.kutils.sample;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
@@ -25,6 +27,8 @@ import cn.kutils.eventbus.EventBus;
 import cn.kutils.eventbus.Subscriber;
 import cn.kutils.eventbus.ThreadMode;
 import cn.kutils.klog.KLog;
+import cn.kutils.permissionchecker.PermissionListener;
+import cn.kutils.permissionchecker.TedPermission;
 import cn.kutils.sample.adapter.MyAdapter;
 import cn.kutils.sample.bean.MainTab;
 import cn.kutils.sample.bean.User;
@@ -74,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         l.add(new MainTab("测试EventBus事件分发", 0));
         l.add(new MainTab("瀑布流测试", 1));
         l.add(new MainTab("多媒体选择库使用", 2));
-        l.add(new MainTab("新功能3", 3));
+        l.add(new MainTab("android6.0权限检测", 3));
         l.add(new MainTab("新功能4", 4));
 
         mAdapter.setNewData(l);
@@ -96,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, MediaUseAty.class));
                         break;
                     case 3:
-
+                        checkPermission();
                         break;
                 }
             }
@@ -109,6 +113,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void checkPermission() {
+        new TedPermission(getApplicationContext())
+                .setPermissionListener(mPermissionListener)
+                .setDeniedMessage("您有未授予的权限，可能导致部分功能闪退，请点击\"设置\"授权相关权限")
+                .setPermissions(
+//                        Manifest.permission.VIBRATE,
+//                        Manifest.permission.ACCESS_COARSE_LOCATION,
+//                        Manifest.permission.ACCESS_FINE_LOCATION,
+//                        Manifest.permission.ACCESS_WIFI_STATE,
+//                        Manifest.permission.ACCESS_NETWORK_STATE,
+//                        Manifest.permission.CHANGE_WIFI_STATE,
+                        Manifest.permission.READ_PHONE_STATE,
+//                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+//                        Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
+//                        Manifest.permission.READ_EXTERNAL_STORAGE,
+//                        Manifest.permission.READ_LOGS,
+//                        Manifest.permission.GET_TASKS,
+//                        Manifest.permission.SET_DEBUG_APP,
+//                        Manifest.permission.SYSTEM_ALERT_WINDOW,
+//                        Manifest.permission.GET_ACCOUNTS,
+//                        Manifest.permission.WRITE_SETTINGS,
+//                        Manifest.permission.RECORD_AUDIO,
+//                        Manifest.permission.WAKE_LOCK,
+//                        Manifest.permission.MODIFY_AUDIO_SETTINGS,
+//                        Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
+                        Manifest.permission.CALL_PHONE)
+                .check();
     }
 
     @Override
@@ -144,5 +177,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private PermissionListener mPermissionListener = new PermissionListener() {
+        @Override
+        public void onPermissionGranted() {
+            KLog.d("全部权限已获取成功");
+            //业务逻辑代码
+        }
+
+        @Override
+        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+            //deniedPermissions 为用户未授予的权限
+            KLog.d("未授予的权限:" + deniedPermissions);
+            //业务逻辑
+        }
+    };
 
 }

@@ -436,6 +436,67 @@ allprojects {
                    app:border_width="2dp"/>
 ```
 + 效果图 <br/>
-![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ci.png)
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ci.png)</br>
+
+# 九.新增android6.0权限检测
+## 使用方式:
+- 在清单文件配置所需activity
+```Java
+    <activity android:name="cn.kutils.permissionchecker.TedPermissionActivity"/>
+```
+- 开始检测权限
+```Java
+        new TedPermission(getApplicationContext())
+                        .setPermissionListener(mPermissionListener)
+                        .setDeniedMessage("您有未授予的权限，可能导致部分功能闪退，请点击\"设置\"授权相关权限")
+                        .setPermissions(
+        //                        Manifest.permission.VIBRATE,
+        //                        Manifest.permission.ACCESS_COARSE_LOCATION,
+        //                        Manifest.permission.ACCESS_FINE_LOCATION,
+        //                        Manifest.permission.ACCESS_WIFI_STATE,
+        //                        Manifest.permission.ACCESS_NETWORK_STATE,
+        //                        Manifest.permission.CHANGE_WIFI_STATE,
+                                Manifest.permission.READ_PHONE_STATE,
+        //                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        //                        Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS,
+        //                        Manifest.permission.READ_EXTERNAL_STORAGE,
+        //                        Manifest.permission.READ_LOGS,
+        //                        Manifest.permission.GET_TASKS,
+        //                        Manifest.permission.SET_DEBUG_APP,
+        //                        Manifest.permission.SYSTEM_ALERT_WINDOW,
+        //                        Manifest.permission.GET_ACCOUNTS,
+        //                        Manifest.permission.WRITE_SETTINGS,
+        //                        Manifest.permission.RECORD_AUDIO,
+        //                        Manifest.permission.WAKE_LOCK,
+        //                        Manifest.permission.MODIFY_AUDIO_SETTINGS,
+        //                        Manifest.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
+                                Manifest.permission.CALL_PHONE)
+                        .check();
+                        
+       //检测结果监听
+       private PermissionListener mPermissionListener = new PermissionListener() {
+            @Override
+            public void onPermissionGranted() {
+                KLog.d("全部权限已获取成功");
+                //业务逻辑代码
+            }
+    
+            @Override
+            public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+                //deniedPermissions 为用户未授予的权限
+                KLog.d("未授予的权限:" + deniedPermissions);
+                //业务逻辑
+            }
+        };
+```
+```Java
+    D/KLog: [ (MainActivity.java:191)#onPermissionDenied ] 未授予的权限:[android.permission.READ_PHONE_STATE, android.permission.CALL_PHONE]
+```
+- 效果图</br>
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/t3.png)</br>
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/t1.png)</br>
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/t2.png)</br>
+
+
 ### 同行共同探讨技术可加我 QQ3648415
    ##### 缺少: 对话框 进度条 时间日期选择控件 九图预览 鲁班压缩 android6.0动态权限检测 共享参数 沉浸式状态栏 自定义toast 侧滑关闭页面   视频播放
