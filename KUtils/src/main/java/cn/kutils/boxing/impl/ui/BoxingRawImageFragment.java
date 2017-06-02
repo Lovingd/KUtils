@@ -29,6 +29,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+
+import com.github.chrisbanes.photoview.PhotoView;
+import com.github.chrisbanes.photoview.PhotoViewAttacher;
+
 import cn.kutils.R;
 import cn.kutils.boxing.AbsBoxingViewActivity;
 import cn.kutils.boxing.loader.IBoxingCallback;
@@ -36,9 +40,6 @@ import cn.kutils.boxing.model.entity.impl.ImageMedia;
 import cn.kutils.boxing.utils.BoxingLog;
 
 import java.lang.ref.WeakReference;
-
-import uk.co.senab.photoview.PhotoView;
-import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
  * show raw image with the control of finger gesture.
@@ -139,7 +140,7 @@ public class BoxingRawImageFragment extends BoxingBaseFragment {
     public void onDestroyView() {
         super.onDestroyView();
         if (mAttacher != null) {
-            mAttacher.cleanup();
+//            mAttacher.cleanup();
             mAttacher = null;
             mImageView = null;
         }

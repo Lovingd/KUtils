@@ -5,11 +5,24 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.listener.OnItemChildClickListener;
+import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.github.chrisbanes.photoview.PhotoView;
+import com.github.chrisbanes.photoview.PhotoViewAttacher;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -18,11 +31,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.kutils.boxing.Boxing;
 import cn.kutils.boxing.impl.ui.BoxingActivity;
-import cn.kutils.boxing.impl.ui.BoxingViewActivity;
 import cn.kutils.boxing.model.config.BoxingConfig;
 import cn.kutils.boxing.model.config.BoxingCropOption;
 import cn.kutils.boxing.model.entity.BaseMedia;
 import cn.kutils.boxing.utils.BoxingFileHelper;
+import cn.kutils.klog.KLog;
 
 /**
  * 创建时间：2017/6/2  上午11:22
@@ -39,13 +52,33 @@ public class MediaUseAty extends AppCompatActivity {
     @Bind(R.id.bt_3)
     Button mBt3;
     private static final int REQUESTCODE_1 = 11, REQUESTCODE_2 = 22, REQUESTCODE_3 = 33;
-
+    @Bind(R.id.rv)
+    RecyclerView mRv;
+    MyImageAdapter imageAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mediaaty);
         ButterKnife.bind(this);
+        imageAdapter = new MyImageAdapter(null);
+        imageAdapter.isFirstOnly(false);
+        imageAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
+        mRv.setLayoutManager(new GridLayoutManager(this, 3, LinearLayoutManager.VERTICAL,false));
+        mRv.setAdapter(imageAdapter);
+        mRv.addOnItemTouchListener(new OnItemChildClickListener() {
+            @Override
+            public void onSimpleItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                Intent intent = new Intent(MediaUseAty.this, ImageBrowseActivity.class);
+                intent.putExtra("position", position);
+                ArrayList<String> arrayList = new ArrayList<String>();
+                for (int i = 0; i < imageAdapter.getData().size(); i++) {
+                    arrayList.add(imageAdapter.getData().get(i));
+                }
+                intent.putStringArrayListExtra("imagePath", arrayList);
+                startActivity(intent);
+            }
+        });
     }
 
     @OnClick({R.id.bt_1, R.id.bt_2, R.id.bt_3})
@@ -92,8 +125,40 @@ public class MediaUseAty extends AppCompatActivity {
         //
         List<BaseMedia> medias = Boxing.getResult(data);
         //注意判断null
+        if (medias == null || medias.size() == 0) return;
+        for (BaseMedia baseMedia : medias) {
+            imageAdapter.addData(baseMedia.getPath());
+        }
+    }
+
+
+    private class MyImageAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
+
+        public MyImageAdapter(@Nullable List<String> data) {
+            super(R.layout.item_photo, data);
+        }
+
+        @Override
+        protected void convert(final BaseViewHolder helper, String item) {
+
+            ImageView photoView = (ImageView) helper.getView(R.id.pv);
+
+//            PhotoView photoView = new PhotoView(MediaUseAty.this);
+            photoView.setScaleType(ImageView.ScaleType.FIT_XY);
+            Glide.with(MediaUseAty.this).load(item).into(photoView);
+            PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(photoView);
+            photoViewAttacher.setZoomable(false);
+            helper.addOnClickListener(R.id.pv);
+        }
     }
 }
+
+
+
+
+
+
+
 
 
 /*

@@ -3,12 +3,12 @@
           package="cn.kutils.sample">
 
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/sampleicon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".App"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -20,7 +20,11 @@
         <activity android:name=".TwoActivity"/>
         <activity android:name=".BeautyPicturesActivity"/>
         <activity android:name=".MediaUseAty"/>
+        <activity
+            android:name=".ImageBrowseActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
 
+        </activity>
         <!--图片选择库相关aty-->
         <activity
             android:name="cn.kutils.boxing.impl.ui.BoxingActivity"

@@ -361,7 +361,41 @@ allprojects {
             //注意判断null
         }
 ```
+# 七.新增photoview图片预览
+## 使用方式同ImageView:
+- 定义方式1
+```Java
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/pv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"/>
+```
+- 定义方式2
+```Java
+        PhotoView photoView = new PhotoView(context);
+        photoView.setScaleType(ImageView.ScaleType.FIT_XY);
+```
+#### 关于 PhotoView 异常捕获
+```Java
 
-
+    public class HackyProblematicViewGroup extends ProblematicViewGroup {
+    
+        public HackyProblematicViewGroup(Context context) {
+            super(context);
+        }
+    
+        @Override
+        public boolean onInterceptTouchEvent(MotionEvent ev) {
+            try {
+                return super.onInterceptTouchEvent(ev);
+            } catch (IllegalArgumentException e) {
+                            //uncomment if you really want to see these errors
+                //e.printStackTrace();
+                return false;
+            }
+        }
+}
+```
 ### 同行共同探讨技术可加我 QQ3648415
    #### Luban   preferences
