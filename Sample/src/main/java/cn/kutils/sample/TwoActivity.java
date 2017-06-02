@@ -9,6 +9,7 @@ import android.widget.Button;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.kutils.atymanager.AppManager;
 import cn.kutils.eventbus.EventBus;
 import cn.kutils.klog.KLog;
 import cn.kutils.sample.bean.User;
@@ -34,6 +35,7 @@ public class TwoActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.twoactivity);
+        AppManager.getAppManager().addActivity(this);
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
         KLog.d("EventBus在TwoActivity中注册成功");
@@ -42,6 +44,7 @@ public class TwoActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        AppManager.getAppManager().finishActivity(this);
         EventBus.getDefault().unregister(this);
         KLog.d("EventBus在TwoActivity中注销成功");
     }

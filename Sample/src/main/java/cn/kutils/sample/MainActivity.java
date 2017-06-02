@@ -19,6 +19,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.kutils.atymanager.AppManager;
 import cn.kutils.eventbus.EventBus;
 import cn.kutils.eventbus.Subscriber;
 import cn.kutils.eventbus.ThreadMode;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AppManager.getAppManager().addActivity(this);
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
         KLog.d("EventBus在MainActivity中注册成功");
@@ -102,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        AppManager.getAppManager().finishActivity(this);
         EventBus.getDefault().unregister(this);
         KLog.d("EventBus在MainActivity中注销成功");
     }
@@ -131,6 +134,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

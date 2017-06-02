@@ -29,6 +29,7 @@ import java.util.Locale;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.kutils.atymanager.AppManager;
 import cn.kutils.boxing.Boxing;
 import cn.kutils.boxing.impl.ui.BoxingActivity;
 import cn.kutils.boxing.model.config.BoxingConfig;
@@ -60,6 +61,7 @@ public class MediaUseAty extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mediaaty);
+        AppManager.getAppManager().addActivity(this);
         ButterKnife.bind(this);
         imageAdapter = new MyImageAdapter(null);
         imageAdapter.isFirstOnly(false);
@@ -131,6 +133,11 @@ public class MediaUseAty extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AppManager.getAppManager().finishActivity(this);
+    }
 
     private class MyImageAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
 

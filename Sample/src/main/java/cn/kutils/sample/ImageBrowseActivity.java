@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 
+import cn.kutils.atymanager.AppManager;
 import cn.kutils.sample.adapter.ImageBrowseAdapter;
 
 /**
@@ -29,6 +30,7 @@ public class ImageBrowseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_images_view);
+        AppManager.getAppManager().addActivity(this);
         // 获取参数
         this.position = getIntent().getIntExtra("position", 0);
         this.imagePath = getIntent().getStringArrayListExtra("imagePath");
@@ -39,5 +41,11 @@ public class ImageBrowseActivity extends AppCompatActivity {
         PagerAdapter adapter = new ImageBrowseAdapter(this, imagePath);
         mViewPager.setAdapter(adapter);
         mViewPager.setCurrentItem(position);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AppManager.getAppManager().finishActivity(this);
     }
 }

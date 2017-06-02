@@ -21,6 +21,7 @@ import java.util.Random;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.kutils.atymanager.AppManager;
 
 /**
  * 创建时间：2017/6/2  上午8:07
@@ -39,8 +40,15 @@ public class BeautyPicturesActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AppManager.getAppManager().addActivity(this);
         ButterKnife.bind(this);
         initAdapter();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        AppManager.getAppManager().finishActivity(this);
     }
 
     private void initAdapter() {

@@ -397,5 +397,30 @@ allprojects {
         }
 }
 ```
+
+
+
+# 八.新增activity管理类
+## 使用方式同:
+##### 在BaseActivty的onCreate()和onDestroy()中添加如下代码:
+```Java
+    @Override
+        protected void onCreate(@Nullable Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.mediaaty);
+            AppManager.getAppManager().addActivity(this);//将activity压入栈
+     @Override
+        protected void onDestroy() {
+            super.onDestroy();
+            AppManager.getAppManager().finishActivity(this);//将activity从栈取出
+        }
+```
+##### 在退出应用时只需调用如下代码即可关闭所有页面
+```Java
+    AppManager.getAppManager().AppExit(this);
+```
+
+
+
 ### 同行共同探讨技术可加我 QQ3648415
    #### Luban   preferences
