@@ -171,7 +171,60 @@ public abstract class MyAdapter extends BaseQuickAdapter<MainTab,BaseViewHolder>
             }
         });
 ```
+
 - [BaseQuicklyAdapter详细使用文档](https://github.com/devzwy/KUtils/raw/master/Word/README_BaseQuicklyAdapter)
+
+
+# 五. 新增Glide加载图片 一行代码
+##实现代码
+```Java
+ private void initAdapter() {
+        mAdapter = new MyAdapter(null);
+        mAdapter.isFirstOnly(false);
+        mAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
+        mRvMain.setLayoutManager(new StaggeredGridLayoutManager(3, LinearLayoutManager.VERTICAL));
+        mRvMain.setAdapter(mAdapter);
+
+        List<String> l = new ArrayList<>();
+        for (int i = 0; i < 80; i++) {
+            if (i % 2 == 0) {
+                l.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496372638951&di=be636f1362f06d68b902b8115cda13dc&imgtype=0&src=http%3A%2F%2Fd.5857.com%2Fxgs_150428%2Fdesk_005.jpg");
+            } else if (i % 3 == 0) {
+                l.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496373786557&di=bc8e94b8e82224a71ea7ea518d06e9ec&imgtype=0&src=http%3A%2F%2Fh7.86.cc%2Fwalls%2F20151020%2F1024x768_3fe2e5a70003597.jpg");
+            } else if (i % 4 == 0) {
+                l.add("http://pic.qiantucdn.com/58pic/15/36/00/73b58PICgvY_1024.jpg!/fw/780/watermark/url/L3dhdGVybWFyay12MS4zLnBuZw==/align/center");
+            } else {
+                l.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496373818671&di=d2fc21e4fbeec9792dfb53ff31c03093&imgtype=0&src=http%3A%2F%2Fimg17.3lian.com%2Fd%2Ffile%2F201701%2F23%2F10783ece0ff1eb32bf137ff9b7ba329e.jpg");
+            }
+            heightList.add(new Random().nextInt(300) + 200);
+        }
+        mAdapter.setNewData(l);
+    }
+
+
+    private class MyAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
+
+        public MyAdapter(@Nullable List<String> data) {
+            super(R.layout.item_girls, data);
+        }
+
+        @Override
+        protected void convert(BaseViewHolder helper, String item) {
+            ImageView imageView = (ImageView) helper.getView(R.id.iv);
+            //设置高度
+            int height = heightList.get(helper.getPosition());
+            //得到控件的高度
+            ViewGroup.LayoutParams layoutParams = (imageView).getLayoutParams();
+            //设置高度
+            layoutParams.height = height;
+            //使用Glide加载图片
+            Glide.with(BeautyPicturesActivity.this).load(item).into(imageView);
+        }
+    }
+```
+## 使用RecyclerView和BaseQuickAdapter实现的瀑布流效果图 调用请查看sample 几行代码调用(Glide加载图片只需一行代码即可)
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ccc.png)
+
 
 ### 同行共同探讨技术可加我 QQ3648415
    #### Luban   preferences

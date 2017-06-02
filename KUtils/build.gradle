@@ -32,4 +32,8 @@ dependencies {
     compile 'com.lzy.net:okrx:+'        //版本号使用 + 可以自动引用最新版
     compile 'com.lzy.net:okserver:+'    //版本号使用 + 可以自动引用最新版    Luban   preferences
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.18'
+
+
+
+    compile 'com.github.bumptech.glide:glide:3.5.2'
 }

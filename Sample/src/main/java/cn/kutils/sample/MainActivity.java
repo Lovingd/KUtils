@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         //添加数据
         List<MainTab> l = new ArrayList<>();
         l.add(new MainTab("测试EventBus事件分发", 0));
-        l.add(new MainTab("新功能1", 1));
+        l.add(new MainTab("瀑布流测试", 1));
         l.add(new MainTab("新功能2", 2));
         l.add(new MainTab("新功能3", 3));
         l.add(new MainTab("新功能4", 4));
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, TwoActivity.class));
                         break;
                     case 1:
-
+                        startActivity(new Intent(MainActivity.this, BeautyPicturesActivity.class));
                         break;
                     case 2:
 

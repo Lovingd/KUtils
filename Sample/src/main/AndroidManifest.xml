@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".TwoActivity"/>
+        <activity android:name=".BeautyPicturesActivity"/>
     </application>
 
 </manifest>
