@@ -7,7 +7,12 @@ import com.lzy.okgo.OkGo;
 
 import java.util.logging.Level;
 
+import cn.kutils.boxing.BoxingCrop;
+import cn.kutils.boxing.BoxingMediaLoader;
+import cn.kutils.boxing.loader.IBoxingMediaLoader;
 import cn.kutils.klog.KLog;
+import cn.kutils.sample.photoinfos.BoxingFrescoLoader;
+import cn.kutils.sample.photoinfos.BoxingUcrop;
 
 /**
  * 创建时间：2017/6/1  下午3:07
@@ -24,6 +29,14 @@ public class App extends Application {
         initLog();
         //初始化网络访问相关配置
         initOkGo();
+        //初始化图片选择器相关
+        initPhotoInfos();
+    }
+
+    private void initPhotoInfos() {
+        IBoxingMediaLoader loader = new BoxingFrescoLoader(this);
+        BoxingMediaLoader.getInstance().init(loader);
+        BoxingCrop.getInstance().init(new BoxingUcrop());
     }
 
     private void initOkGo() {

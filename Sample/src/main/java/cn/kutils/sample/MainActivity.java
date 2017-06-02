@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         List<MainTab> l = new ArrayList<>();
         l.add(new MainTab("测试EventBus事件分发", 0));
         l.add(new MainTab("瀑布流测试", 1));
-        l.add(new MainTab("新功能2", 2));
+        l.add(new MainTab("多媒体选择库使用", 2));
         l.add(new MainTab("新功能3", 3));
         l.add(new MainTab("新功能4", 4));
 
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, BeautyPicturesActivity.class));
                         break;
                     case 2:
-
+                        startActivity(new Intent(MainActivity.this, MediaUseAty.class));
                         break;
                     case 3:
 

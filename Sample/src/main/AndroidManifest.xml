@@ -19,6 +19,45 @@
         </activity>
         <activity android:name=".TwoActivity"/>
         <activity android:name=".BeautyPicturesActivity"/>
+        <activity android:name=".MediaUseAty"/>
+
+        <!--图片选择库相关aty-->
+        <activity
+            android:name="cn.kutils.boxing.impl.ui.BoxingActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Boxing.AppTheme.NoActionBar">
+        </activity>
+
+        <activity
+            android:name="cn.kutils.boxing.impl.ui.BoxingViewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Boxing.AppTheme.NoActionBar">
+        </activity>
+
+        <activity
+            android:name="cn.kutils.boxing.impl.ui.BoxingBottomSheetActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Boxing.AppTheme.NoActionBar"/>
+
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.file.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/boxing_file_provider"/>
+
+        </provider>
+
     </application>
 
 </manifest>
