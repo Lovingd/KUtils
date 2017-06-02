@@ -10,7 +10,7 @@ import java.nio.channels.FileChannel;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class FFMD5Util {
+public class KMD5Util {
 
     private static char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b',
             'c', 'd', 'e', 'f'};
@@ -21,7 +21,7 @@ public class FFMD5Util {
         try {
             messagedigest = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException nsaex) {
-            System.err.println(FFMD5Util.class.getName() + "初始化失败，MessageDigest不支持MD5Util。");
+            System.err.println(KMD5Util.class.getName() + "初始化失败，MessageDigest不支持MD5Util。");
             nsaex.printStackTrace();
         }
     }

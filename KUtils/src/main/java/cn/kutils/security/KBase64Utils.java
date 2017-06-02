@@ -26,7 +26,7 @@ import java.io.OutputStream;
  * @date 2012-5-19
  * @version 1.0
  */
-public class FFBase64Utils {
+public class KBase64Utils {
 
     /**
      * 文件读取缓冲区大小

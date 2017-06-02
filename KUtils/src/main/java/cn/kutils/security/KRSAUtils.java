@@ -48,7 +48,7 @@ import javax.crypto.Cipher;
  *  项目作者： 赵文贇
  *  项目包名： shanghai.com.rsatest
  */
-public class FFRSAUtils {
+public class KRSAUtils {
 
     public static final int MODE = 0xF1A6DE66;
     /**
@@ -109,27 +109,27 @@ public class FFRSAUtils {
      * @throws Exception
      */
     public static String sign(byte[] data, String privateKey) throws Exception {
-        byte[] keyBytes = FFBase64Utils.decode(privateKey);
+        byte[] keyBytes = KBase64Utils.decode(privateKey);
         PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         PrivateKey privateK = keyFactory.generatePrivate(pkcs8KeySpec);
         Signature signature = Signature.getInstance(SIGNATURE_ALGORITHM);
         signature.initSign(privateK);
         signature.update(data);
-        return FFBase64Utils.encode(signature.sign());
+        return KBase64Utils.encode(signature.sign());
     }
 
 
     public static boolean verify(byte[] data, String publicKey, String sign)
             throws Exception {
-        byte[] keyBytes = FFBase64Utils.decode(publicKey);
+        byte[] keyBytes = KBase64Utils.decode(publicKey);
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         PublicKey publicK = keyFactory.generatePublic(keySpec);
         Signature signature = Signature.getInstance(SIGNATURE_ALGORITHM);
         signature.initVerify(publicK);
         signature.update(data);
-        return signature.verify(FFBase64Utils.decode(sign));
+        return signature.verify(KBase64Utils.decode(sign));
     }
 
     /**
@@ -141,7 +141,7 @@ public class FFRSAUtils {
      */
     public static byte[] decryptByPrivateKey(byte[] encryptedData, String privateKey)
             throws Exception {
-        byte[] keyBytes = FFBase64Utils.decode(privateKey);
+        byte[] keyBytes = KBase64Utils.decode(privateKey);
         PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         Key privateK = keyFactory.generatePrivate(pkcs8KeySpec);
@@ -171,7 +171,7 @@ public class FFRSAUtils {
 
     public static byte[] decryptByPublicKey(byte[] encryptedData, String publicKey)
             throws Exception {
-        byte[] keyBytes = FFBase64Utils.decode(publicKey);
+        byte[] keyBytes = KBase64Utils.decode(publicKey);
         X509EncodedKeySpec x509KeySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         Key publicK = keyFactory.generatePublic(x509KeySpec);
@@ -201,7 +201,7 @@ public class FFRSAUtils {
 
     public static byte[] encryptByPublicKey(byte[] data, String publicKey)
             throws Exception {
-        byte[] keyBytes = FFBase64Utils.decode(publicKey);
+        byte[] keyBytes = KBase64Utils.decode(publicKey);
         X509EncodedKeySpec x509KeySpec = new X509EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         Key publicK = keyFactory.generatePublic(x509KeySpec);
@@ -232,7 +232,7 @@ public class FFRSAUtils {
 
     public static byte[] encryptByPrivateKey(byte[] data, String privateKey)
             throws Exception {
-        byte[] keyBytes = FFBase64Utils.decode(privateKey);
+        byte[] keyBytes = KBase64Utils.decode(privateKey);
         PKCS8EncodedKeySpec pkcs8KeySpec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory keyFactory = KeyFactory.getInstance(KEY_ALGORITHM);
         Key privateK = keyFactory.generatePrivate(pkcs8KeySpec);
@@ -271,13 +271,13 @@ public class FFRSAUtils {
     public static String getPrivateKey(Map<String, Object> keyMap)
             throws Exception {
         Key key = (Key) keyMap.get(PRIVATE_KEY);
-        return FFBase64Utils.encode(key.getEncoded());
+        return KBase64Utils.encode(key.getEncoded());
     }
 
     public static String getPublicKey(Map<String, Object> keyMap)
             throws Exception {
         Key key = (Key) keyMap.get(PUBLIC_KEY);
-        return FFBase64Utils.encode(key.getEncoded());
+        return KBase64Utils.encode(key.getEncoded());
     }
 
 

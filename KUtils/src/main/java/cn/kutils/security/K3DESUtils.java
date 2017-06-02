@@ -15,7 +15,7 @@ import javax.crypto.spec.SecretKeySpec;
 /**
  * Created by Administrator on 2016/5/19.
  */
-public class FF3DESUtils {
+public class K3DESUtils {
     private static String encryptTypeName = null;/*算法名称  DESede /..*/
     private static int keySize = -1;/*密钥长度*/
     private static String workMode = null;//工作模式和填充模式
@@ -28,12 +28,12 @@ public class FF3DESUtils {
      */
     public static boolean setKeyInfo(String encryptTypeName, int keySize, String workMode) {
         boolean isOk = false;
-        FF3DESUtils.encryptTypeName = encryptTypeName;
-        FF3DESUtils.keySize = keySize;
-        FF3DESUtils.workMode = workMode;
-        if (FF3DESUtils.encryptTypeName != null && !FF3DESUtils.encryptTypeName.equals("")
+        K3DESUtils.encryptTypeName = encryptTypeName;
+        K3DESUtils.keySize = keySize;
+        K3DESUtils.workMode = workMode;
+        if (K3DESUtils.encryptTypeName != null && !K3DESUtils.encryptTypeName.equals("")
                 && keySize > 0
-                && FF3DESUtils.workMode != null && !FF3DESUtils.workMode.equals("")) {
+                && K3DESUtils.workMode != null && !K3DESUtils.workMode.equals("")) {
             isOk = true;
 //            V.d("3Des加密前参数设置成功\n算法名称设置为：" + encryptTypeName + "\n密钥长度设置为：" + keySize);
         }
