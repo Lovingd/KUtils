@@ -313,11 +313,6 @@ allprojects {
 //                初始化Boxing，构造Intent并启动
                 Boxing.of(config).withIntent(this, BoxingActivity.class).start(this, REQUESTCODE_1);
 ```
-- 效果图<br />
-
-![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/i1.png)
-<br />
-![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/i2.png)
 
 - 打开图片选择器(单选带裁剪功能)
 ```Java
@@ -336,20 +331,12 @@ allprojects {
                                 .withMediaPlaceHolderRes(R.mipmap.ic_launcher_round);
                         Boxing.of(singleCropImgConfig).withIntent(this, BoxingActivity.class).start(this, REQUESTCODE_3);
 ```
-- 效果图<br />
-![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ii1.png)<br />
-
-![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/ii2.png)
-
 - 打开视频选择器
 ```Java
       //启动视频选择
                     BoxingConfig videoConfig = new BoxingConfig(BoxingConfig.Mode.VIDEO).withVideoDurationRes(R.mipmap.ic_launcher_round);
                     Boxing.of(videoConfig).withIntent(this, BoxingActivity.class).start(this, REQUESTCODE_2);
 ```
-- 效果图<br />
-![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/iii1.png)
-
 #### 6 取结果
 ```Java
 
@@ -361,6 +348,9 @@ allprojects {
             //注意判断null
         }
 ```
+- 效果图<br/>
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/imageselector.gif)</br>
+
 # 七.新增photoview图片预览
 ## 使用方式同ImageView:
 - 定义方式1

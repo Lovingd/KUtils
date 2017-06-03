@@ -40,7 +40,7 @@ import cn.kutils.sample.aty.ImageBrowseActivity;
 /**
  * 创建时间：2017/6/2  上午11:22
  * 创建人：赵文贇
- * 类描述：
+ * 类描述：多媒体选择
  * 包名：cn.kutils.sample
  * 待我代码编好，娶你为妻可好。
  */
@@ -127,6 +127,7 @@ public class MediaUseAty extends AppCompatActivity {
         List<BaseMedia> medias = Boxing.getResult(data);
         //注意判断null
         if (medias == null || medias.size() == 0) return;
+        imageAdapter.setNewData(null);
         for (BaseMedia baseMedia : medias) {
             imageAdapter.addData(baseMedia.getPath());
         }
