@@ -1,4 +1,4 @@
-package cn.kutils.sample;
+package cn.kutils.sample.aty;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -22,6 +22,7 @@ import java.util.Random;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.kutils.atymanager.AppManager;
+import cn.kutils.sample.R;
 
 /**
  * 创建时间：2017/6/2  上午8:07

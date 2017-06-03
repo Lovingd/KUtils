@@ -1,4 +1,4 @@
-package cn.kutils.sample;
+package cn.kutils.sample.view;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

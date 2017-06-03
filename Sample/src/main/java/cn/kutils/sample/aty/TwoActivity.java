@@ -1,4 +1,4 @@
-package cn.kutils.sample;
+package cn.kutils.sample.aty;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +12,7 @@ import butterknife.OnClick;
 import cn.kutils.atymanager.AppManager;
 import cn.kutils.eventbus.EventBus;
 import cn.kutils.klog.KLog;
+import cn.kutils.sample.R;
 import cn.kutils.sample.bean.User;
 
 /**

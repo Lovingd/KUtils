@@ -19,14 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".TwoActivity"/>
-        <activity android:name=".BeautyPicturesActivity"/>
-        <activity android:name=".MediaUseAty"/>
+        <activity android:name=".aty.TwoActivity"/>
+        <activity android:name=".aty.BeautyPicturesActivity"/>
+        <activity android:name=".aty.MediaUseAty"/>
         <activity
-            android:name=".ImageBrowseActivity"
+            android:name=".aty.ImageBrowseActivity"
             android:theme="@style/Theme.Design.NoActionBar">
-
         </activity>
+        <activity android:name=".aty.ProgressButtonAty"/>
         <!--图片选择库相关aty-->
         <activity
             android:name="cn.kutils.boxing.impl.ui.BoxingActivity"

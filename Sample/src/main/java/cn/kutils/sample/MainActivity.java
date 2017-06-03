@@ -30,6 +30,10 @@ import cn.kutils.klog.KLog;
 import cn.kutils.permissionchecker.PermissionListener;
 import cn.kutils.permissionchecker.TedPermission;
 import cn.kutils.sample.adapter.MyAdapter;
+import cn.kutils.sample.aty.BeautyPicturesActivity;
+import cn.kutils.sample.aty.MediaUseAty;
+import cn.kutils.sample.aty.ProgressButtonAty;
+import cn.kutils.sample.aty.TwoActivity;
 import cn.kutils.sample.bean.MainTab;
 import cn.kutils.sample.bean.User;
 import cn.kutils.view.CircleImageView;
@@ -79,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         l.add(new MainTab("瀑布流测试", 1));
         l.add(new MainTab("多媒体选择库使用", 2));
         l.add(new MainTab("android6.0权限检测", 3));
-        l.add(new MainTab("新功能4", 4));
+        l.add(new MainTab("带下载进度的button", 4));
 
         mAdapter.setNewData(l);
 
@@ -101,6 +105,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 3:
                         checkPermission();
+                        break;
+                    case 4:
+                        startActivity(new Intent(MainActivity.this, ProgressButtonAty.class));
                         break;
                 }
             }

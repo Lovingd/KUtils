@@ -1,4 +1,4 @@
-package cn.kutils.sample;
+package cn.kutils.sample.aty;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -18,8 +18,6 @@ import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.github.chrisbanes.photoview.PhotoView;
 import com.github.chrisbanes.photoview.PhotoViewAttacher;
 
 import java.util.ArrayList;
@@ -36,7 +34,8 @@ import cn.kutils.boxing.model.config.BoxingConfig;
 import cn.kutils.boxing.model.config.BoxingCropOption;
 import cn.kutils.boxing.model.entity.BaseMedia;
 import cn.kutils.boxing.utils.BoxingFileHelper;
-import cn.kutils.klog.KLog;
+import cn.kutils.sample.R;
+import cn.kutils.sample.aty.ImageBrowseActivity;
 
 /**
  * 创建时间：2017/6/2  上午11:22

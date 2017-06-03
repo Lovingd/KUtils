@@ -1,15 +1,15 @@
-package cn.kutils.sample;
+package cn.kutils.sample.aty;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 
 import cn.kutils.atymanager.AppManager;
+import cn.kutils.sample.R;
 import cn.kutils.sample.adapter.ImageBrowseAdapter;
+import cn.kutils.sample.view.ViewPager_;
 
 /**
  * 创建时间：2017/6/2  下午1:58

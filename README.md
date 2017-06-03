@@ -499,7 +499,20 @@ allprojects {
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/t1.png)</br>
 - 点击设置按钮后自动跳转如下授权页面
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/t2.png)</br>
-
-
+# 十二.新增带进度的button
+## 使用方式:
+```Java
+<cn.kutils.view.progressbutton.AnimDownloadProgressButton
+        android:id="@+id/anim_btn"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:progressbtn_backgroud_color="@color/colorAccent"
+        app:progressbtn_backgroud_second_color="@color/ccc"
+        app:progressbtn_text_size="25"/>
+```
+- 效果图<br/>
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/pbt.gif)</br>
 ### 同行共同探讨技术可加我 QQ3648415
    ##### 缺少: 对话框 进度条 时间日期选择控件 九图预览 鲁班压缩 共享参数 沉浸式状态栏 自定义toast 侧滑关闭页面   视频播放
