@@ -677,4 +677,4 @@ allprojects {
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/dialog.gif)</br>
 ### 同行共同探讨技术可加我 QQ3648415
 
-   ##### 缺少: 对话框 进度条  自定义toast 侧滑关闭页面   视频播放
+   ##### 缺少:侧滑关闭页面   视频播放
