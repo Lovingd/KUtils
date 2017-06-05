@@ -18,6 +18,7 @@ import cn.kutils.klog.KLog;
 import cn.kutils.preferences.AppPreferences;
 import cn.kutils.sample.photoinfos.BoxingFrescoLoader;
 import cn.kutils.sample.photoinfos.BoxingUcrop;
+import cn.kutils.view.loadingdialog.DialogUIUtils;
 import cn.kutils.view.nineimages.NineGridView;
 
 /**
@@ -39,6 +40,8 @@ public class App extends Application {
         initPhotoInfos();
         //初始化九图预览加载器
         initNineImages();
+        //初始化对话框toast
+        DialogUIUtils.init(this);
     }
 
     private void initNineImages() {

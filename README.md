@@ -663,9 +663,18 @@ allprojects {
 ```Java
      String str = appPreferences.getString("key", "");//读取
 ```
-
-
-
+# 十八.新增对话框进度条 一行代码显示
+## 使用方法:
+- 初始化 全局只需要初始化依次
+```Java
+    DialogUIUtils.init(this);
+```
+- 使用 详细请查看sample
+```Java
+     DialogUIUtils.show...
+```
+- 效果图
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/dialog.gif)</br>
 ### 同行共同探讨技术可加我 QQ3648415
 
-   ##### 缺少: 对话框 进度条 共享参数 自定义toast 侧滑关闭页面   视频播放
+   ##### 缺少: 对话框 进度条  自定义toast 侧滑关闭页面   视频播放

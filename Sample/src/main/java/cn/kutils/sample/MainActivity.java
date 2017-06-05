@@ -33,6 +33,7 @@ import cn.kutils.permissionchecker.TedPermission;
 import cn.kutils.preferences.AppPreferences;
 import cn.kutils.sample.adapter.MyAdapter;
 import cn.kutils.sample.aty.BeautyPicturesActivity;
+import cn.kutils.sample.aty.DialogSample;
 import cn.kutils.sample.aty.MediaUseAty;
 import cn.kutils.sample.aty.NineImagesAty;
 import cn.kutils.sample.aty.PickerSampleAty;
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
         l.add(new MainTab("时间/日期/自定义选择控件", 5));
         l.add(new MainTab("九图预览与图片压缩", 6));
         l.add(new MainTab("共享参数读写测试", 7));
+        l.add(new MainTab("对话框测试", 8));
 
 
         mAdapter.setNewData(l);
@@ -134,6 +136,10 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "写入:key=999", Toast.LENGTH_SHORT).show();
                         String str = appPreferences.getString("key", "");//读取
                         Toast.makeText(getApplicationContext(), "读到参数:" + str, Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case 8:
+                        startActivity(new Intent(MainActivity.this, DialogSample.class));
 
                         break;
 
