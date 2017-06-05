@@ -67,6 +67,9 @@
         <activity android:name="cn.kutils.permissionchecker.TedPermissionActivity"/>
         <!--时间选择控件-->
         <activity android:name=".aty.PickerSampleAty"/>
+        <activity android:name=".aty.NineImagesAty"/>
+        <!--九图预览-->
+        <activity android:name="cn.kutils.view.nineimages.preview.ImagePreviewActivity"/>
     </application>
 
 </manifest>

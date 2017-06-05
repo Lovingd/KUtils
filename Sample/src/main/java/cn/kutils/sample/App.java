@@ -1,8 +1,12 @@
 package cn.kutils.sample;
 
 import android.app.Application;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
 
 
+import com.bumptech.glide.Glide;
 import com.lzy.okgo.OkGo;
 
 import java.util.logging.Level;
@@ -13,6 +17,7 @@ import cn.kutils.boxing.loader.IBoxingMediaLoader;
 import cn.kutils.klog.KLog;
 import cn.kutils.sample.photoinfos.BoxingFrescoLoader;
 import cn.kutils.sample.photoinfos.BoxingUcrop;
+import cn.kutils.view.nineimages.NineGridView;
 
 /**
  * 创建时间：2017/6/1  下午3:07
@@ -31,6 +36,22 @@ public class App extends Application {
         initOkGo();
         //初始化图片选择器相关
         initPhotoInfos();
+        //初始化九图预览加载器
+        initNineImages();
+    }
+
+    private void initNineImages() {
+        NineGridView.setImageLoader(new NineGridView.ImageLoader() {
+            @Override
+            public void onDisplayImage(Context context, ImageView imageView, String url) {
+                Glide.with(context).load(url).into(imageView);
+            }
+
+            @Override
+            public Bitmap getCacheImage(String url) {
+                return null;
+            }
+        });
     }
 
     private void initPhotoInfos() {

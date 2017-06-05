@@ -32,6 +32,7 @@ import cn.kutils.permissionchecker.TedPermission;
 import cn.kutils.sample.adapter.MyAdapter;
 import cn.kutils.sample.aty.BeautyPicturesActivity;
 import cn.kutils.sample.aty.MediaUseAty;
+import cn.kutils.sample.aty.NineImagesAty;
 import cn.kutils.sample.aty.PickerSampleAty;
 import cn.kutils.sample.aty.ProgressButtonAty;
 import cn.kutils.sample.aty.TwoActivity;
@@ -91,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
         l.add(new MainTab("android6.0权限检测", 3));
         l.add(new MainTab("带下载进度的button", 4));
         l.add(new MainTab("时间/日期/自定义选择控件", 5));
+        l.add(new MainTab("九图预览与图片压缩", 6));
+
 
 
         mAdapter.setNewData(l);
@@ -119,6 +122,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 5:
                         startActivity(new Intent(MainActivity.this, PickerSampleAty.class));
+                        break;
+                    case 6:
+                        startActivity(new Intent(MainActivity.this, NineImagesAty.class));
                         break;
 
                 }

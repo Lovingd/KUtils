@@ -21,6 +21,7 @@
     <color name="boxing_colorPrimaryDark">#ff212121</color>
     <color name="boxing_colorPrimaryAlpha">#44000000</color>
     <color name="boxing_colorAccent">#FF4081</color>
+    <color name="ic_default_bg_color">#33000000</color>
 
     <color name="boxing_gray">#999999</color>
     <color name="boxing_gray1">#333333</color>

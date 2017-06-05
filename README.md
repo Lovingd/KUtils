@@ -583,6 +583,42 @@ allprojects {
 ```
 
 
+
+# 十五.新增九图预览
+## 使用方式:
+- 在application初始化图片加载器
+```Java
+     NineGridView.setImageLoader(new NineGridView.ImageLoader() {
+                @Override
+                public void onDisplayImage(Context context, ImageView imageView, String url) {
+                    Glide.with(context).load(url).into(imageView);
+                }
+    
+                @Override
+                public Bitmap getCacheImage(String url) {
+                    return null;
+                }
+            });
+```
+- 定义
+```Java
+        <cn.kutils.view.nineimages.NineGridView
+            android:id="@+id/ng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+```
+
+- 填充数据
+
+```Java
+    List<ImageInfo> list = new ArrayList<>();
+            for (int i = 0; i < medias.size(); i++) {
+                list.add(new ImageInfo(medias.get(i).getPath(),medias.get(i).getPath()));
+            }
+            mNg.setAdapter(new NineGridViewClickAdapter(NineImagesAty.this, list));
+```
+- 效果图
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/nineimages.png)</br>
 ### 同行共同探讨技术可加我 QQ3648415
 
    ##### 缺少: 对话框 进度条  九图预览 鲁班压缩 共享参数 自定义toast 侧滑关闭页面   视频播放
