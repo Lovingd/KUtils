@@ -1,17 +1,6 @@
-KUtils(代码来源第三方,只做代码搬运工) 妹子 可以交个朋友嘛
+KUtils(代码来源第三方,只做代码搬运工) 
 ========
-即将更新:广告弹出自定义view(弹出属性:出现角度,弹出动画,两侧边距,背景是否透明,背景色,下方关闭按钮是否可见等)
-========
-# 坐稳了,我要开车了
-
-- 好吃不过饺子，好玩不过嫂子，吃嫂子包的饺子，玩包饺子的嫂子，吃最烫的饺子，操最浪的嫂子!
-- 好喝不过拿铁， 好玩不过表姐，喝表姐买的拿铁，玩买拿铁的表姐，喝最香的拿铁，操最骚的表姐!
-- 好吃不过海味，好玩不过表妹， 吃表妹做的海味，玩做海味的表妹，吃最美的海味，操最美的表妹!
-- 好躺不过草席，好睡不过小姨，带着小姨买草席，买完草席睡小姨，躺着最凉的草席，睡着最骚的小姨，躺着小姨买的草席，睡着买草席的小姨，小姨买的草席最凉，草席上的小姨最强
-
-![image](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496376464576&di=9a90e5111b3c5b3638073b6cc379e4da&imgtype=0&src=http%3A%2F%2Faliimg.changba.com%2Fcache%2Fphoto%2F128116118_640_640.jpg)
-
-进入重点..android快速开发常用第三方库整合,集成了优雅的日志打印(可自动格式化json,xml,日志输出无字符长度4000的限制),两行代码调用EventBus事件分发,okgo网络访问一行代码实现文件上传下载带进度,上送json xml 等参数,可设置缓存模式以及SSL认证等,万能的RecyclerView适配器BaseQuicklyAdapter,实现上啦刷新,下拉加载,item不同布局,一行代码设置头布局和脚布局.瀑布流,多媒体选择库,photoview图片预览,activity管理类,android端加解密工具类,CircleImageView圆角用户头像,android6.0权限检测
+android快速开发常用第三方库整合,集成了优雅的日志打印(可自动格式化json,xml,日志输出无字符长度4000的限制),两行代码调用EventBus事件分发,okgo网络访问一行代码实现文件上传下载带进度,上送json xml 等参数,可设置缓存模式以及SSL认证等,万能的RecyclerView适配器BaseQuicklyAdapter,实现上啦刷新,下拉加载,item不同布局,一行代码设置头布局和脚布局.瀑布流,多媒体选择库,photoview图片预览,activity管理类,android端加解密工具类,CircleImageView圆角用户头像,android6.0权限检测
 
 
  # 一. 新增KLog 日志打印
@@ -27,7 +16,7 @@ KUtils(代码来源第三方,只做代码搬运工) 妹子 可以交个朋友嘛
   ## 效果图
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/KLogImage.png)
 
-# 二. 新增EventBus事件分发
+# 二.新增EventBus事件分发
 
 ## 使用方式:
 ```Java
@@ -620,7 +609,7 @@ allprojects {
 - 效果图
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/nineimages.png)</br>
 
-# 十六. 新增鲁班图片压缩(仿微信朋友圈图片压缩算法)
+# 十六.新增鲁班图片压缩(仿微信朋友圈图片压缩算法)
 ## 使用方法:
 - 一行代码完成压缩
 ```Java
