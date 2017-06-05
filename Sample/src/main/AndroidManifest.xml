@@ -65,6 +65,8 @@
         </provider>
         <!--权限检测aty-->
         <activity android:name="cn.kutils.permissionchecker.TedPermissionActivity"/>
+        <!--时间选择控件-->
+        <activity android:name=".aty.PickerSampleAty"/>
     </application>
 
 </manifest>

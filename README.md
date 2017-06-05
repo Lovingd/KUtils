@@ -506,6 +506,71 @@ allprojects {
 ```
 - 效果图<br/>
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/pbt.gif)</br>
+
+
+# 十三.新增事件选择控件
+## 使用方式:
+- 时间日期选择  四种选择模式，年月日时分，年月日，时分，月日时分
+```Java
+
+     TimePickerView timePickerView = new TimePickerView(this, TimePickerView.Type.ALL);
+                    timePickerView.setOnTimeSelectListener(new TimePickerView.OnTimeSelectListener() {
+                        @Override
+                        public void onTimeSelect(Date date) {
+                            Toast.makeText(getApplicationContext(), new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    timePickerView.show();//四种选择模式，年月日时分，年月日，时分，月日时分  ALL, YEAR_MONTH_DAY, HOURS_MINS, MONTH_DAY_HOUR_MIN , YEAR_MONTH
+```
+- 效果图<br/>
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/date.png)</br>
+- 自定义选择 可设置3级联动
+```Java
+
+    options1Items.add(new PriceBean("a"));
+                    options1Items.add(new PriceBean("b"));
+                    options1Items.add(new PriceBean("c"));
+    
+                    ArrayList<String> a_1
+                            = new ArrayList<>();
+                    a_1.add("a1");
+                    a_1.add("a2");
+                    a_1.add("a3");
+                    options2Items.add(a_1);
+                    ArrayList<String> b_1 = new ArrayList<>();
+                    b_1.add("b1");
+                    b_1.add("b2");
+                    b_1.add("b3");
+                    b_1.add("b4");
+                    options2Items.add(b_1);
+    
+                    ArrayList<String> c_1 = new ArrayList<>();
+                    c_1.add("c1");
+                    c_1.add("c2");
+                    c_1.add("c3");
+                    c_1.add("c4");
+                    c_1.add("c5");
+                    c_1.add("c6");
+                    c_1.add("c7");
+                    options2Items.add(c_1);
+    
+                    pvOptions = new OptionsPickerView(this);
+                    pvOptions.setPicker(options1Items, options2Items, true);
+                    pvOptions.setTitle("XXXX");
+                    pvOptions.setCyclic(false, false, false);
+                    //设置默认选中的三级项目
+                    //监听确定选择按钮
+                    pvOptions.setSelectOptions(0, 0, 0);
+                    pvOptions.setOnoptionsSelectListener(new OptionsPickerView.OnOptionsSelectListener() {
+                        @Override
+                        public void onOptionsSelect(int options1, int option2, int options3) {
+                            Toast.makeText(getApplicationContext(), options1Items.get(options1).getPickerViewText(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    pvOptions.show();
+```
+- 效果图<br/>
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/date2.png)</br>
 ### 同行共同探讨技术可加我 QQ3648415
 
    ##### 缺少: 对话框 进度条 时间日期选择控件 九图预览 鲁班压缩 共享参数 沉浸式状态栏 自定义toast 侧滑关闭页面   视频播放
