@@ -619,6 +619,40 @@ allprojects {
 ```
 - 效果图
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/nineimages.png)</br>
+
+# 十六. 新增鲁班图片压缩(仿微信朋友圈图片压缩算法)
+## 使用方法:
+- 一行代码完成压缩
+```Java
+    Luban.get(this).load(files).putGear(Luban.FIRST_GEAR).launch(new OnMultiCompressListener() {//FIRST_GEAR  CUSTOM_GEAR THIRD_GEAR
+                @Override
+                public void onStart() {
+                    append("开始压缩,压缩时间会根据图片大小和数量相应增加");
+                }
+    
+                @Override
+                public void onSuccess(List<File> fileList) {
+                    ArrayList<String> c = new ArrayList<>();
+                    List<ImageInfo> list = new ArrayList<>();
+                    for (int i = 0; i < fileList.size(); i++) {
+                        c.add(String.valueOf(FileSizeUtil.getFileOrFilesSize(fileList.get(i).getPath(), SIZETYPE_MB))+ "Mb");
+                        list.add(new ImageInfo(fileList.get(i).getPath(), fileList.get(i).getPath()));
+                    }
+                    append("张图片压缩完成,大小依次:" + c + "Mb");
+                    append("设置到九图预览控件");
+                    mNg.setAdapter(new NineGridViewClickAdapter(NineImagesAty.this, list));
+                    mNg.setSingleImageSize(250);
+                }
+    
+                @Override
+                public void onError(Throwable e) {
+                    append("压缩出错," + e.toString());
+                }
+    
+            });
+```
+- 效果图
+![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/luban.png)</br>
 ### 同行共同探讨技术可加我 QQ3648415
 
-   ##### 缺少: 对话框 进度条  九图预览 鲁班压缩 共享参数 自定义toast 侧滑关闭页面   视频播放
+   ##### 缺少: 对话框 进度条 共享参数 自定义toast 侧滑关闭页面   视频播放

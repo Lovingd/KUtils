@@ -16,13 +16,12 @@
             android:layout_weight="1"
             android:text="选择图片"/>
 
-        <Button
-            android:id="@+id/bt_2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="压缩"/>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
 
     <cn.kutils.view.nineimages.NineGridView
         android:id="@+id/ng"
