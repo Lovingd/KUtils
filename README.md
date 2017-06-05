@@ -640,8 +640,32 @@ allprojects {
     
             });
 ```
+- [Luban压缩详细文档](https://github.com/devzwy/KUtils/blob/master/Word/README_LuBan.md)</br>
 - 效果图
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/luban.png)</br>
+
+
+# 十七.新增共享参数读写功能(不同进程也可以)
+## 使用方法:
+- 修改KUtils的build.gradle文件里代码 
+```Java
+    resValue "string", "tray__authority", "cn.kutils.sample" //将cn.kutils.sample更换为自己软件的包名
+```
+- 初始化
+```Java
+    AppPreferences appPreferences = new AppPreferences(getApplicationContext());
+```
+- 写入
+```Java
+     appPreferences.put("key", 999);//写入
+```
+- 读取
+```Java
+     String str = appPreferences.getString("key", "");//读取
+```
+
+
+
 ### 同行共同探讨技术可加我 QQ3648415
 
    ##### 缺少: 对话框 进度条 共享参数 自定义toast 侧滑关闭页面   视频播放

@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -29,6 +30,7 @@ import cn.kutils.eventbus.ThreadMode;
 import cn.kutils.klog.KLog;
 import cn.kutils.permissionchecker.PermissionListener;
 import cn.kutils.permissionchecker.TedPermission;
+import cn.kutils.preferences.AppPreferences;
 import cn.kutils.sample.adapter.MyAdapter;
 import cn.kutils.sample.aty.BeautyPicturesActivity;
 import cn.kutils.sample.aty.MediaUseAty;
@@ -93,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
         l.add(new MainTab("带下载进度的button", 4));
         l.add(new MainTab("时间/日期/自定义选择控件", 5));
         l.add(new MainTab("九图预览与图片压缩", 6));
-
+        l.add(new MainTab("共享参数读写测试", 7));
 
 
         mAdapter.setNewData(l);
@@ -125,6 +127,14 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 6:
                         startActivity(new Intent(MainActivity.this, NineImagesAty.class));
+                        break;
+                    case 7:
+                        AppPreferences appPreferences = new AppPreferences(getApplicationContext());
+                        appPreferences.put("key", 999);//写入
+                        Toast.makeText(getApplicationContext(), "写入:key=999", Toast.LENGTH_SHORT).show();
+                        String str = appPreferences.getString("key", "");//读取
+                        Toast.makeText(getApplicationContext(), "读到参数:" + str, Toast.LENGTH_SHORT).show();
+
                         break;
 
                 }

@@ -15,6 +15,7 @@ import cn.kutils.boxing.BoxingCrop;
 import cn.kutils.boxing.BoxingMediaLoader;
 import cn.kutils.boxing.loader.IBoxingMediaLoader;
 import cn.kutils.klog.KLog;
+import cn.kutils.preferences.AppPreferences;
 import cn.kutils.sample.photoinfos.BoxingFrescoLoader;
 import cn.kutils.sample.photoinfos.BoxingUcrop;
 import cn.kutils.view.nineimages.NineGridView;
