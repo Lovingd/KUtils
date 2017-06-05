@@ -571,6 +571,18 @@ allprojects {
 ```
 - 效果图<br/>
 ![image](https://github.com/devzwy/KUtils/raw/master/Screenshot/date2.png)</br>
+
+
+# 十四.新增沉浸式状态栏设置
+## 使用方式:
+```Java
+     //设置沉浸式状态栏
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            tintManager.setStatusBarTintResource(R.color.boxing_colorAccent);//通知栏所需颜色  
+```
+
+
 ### 同行共同探讨技术可加我 QQ3648415
 
-   ##### 缺少: 对话框 进度条 时间日期选择控件 九图预览 鲁班压缩 共享参数 沉浸式状态栏 自定义toast 侧滑关闭页面   视频播放
+   ##### 缺少: 对话框 进度条  九图预览 鲁班压缩 共享参数 自定义toast 侧滑关闭页面   视频播放

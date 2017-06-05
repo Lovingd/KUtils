@@ -38,6 +38,7 @@ import cn.kutils.sample.aty.TwoActivity;
 import cn.kutils.sample.bean.MainTab;
 import cn.kutils.sample.bean.User;
 import cn.kutils.view.CircleImageView;
+import cn.kutils.view.systembartint.SystemBarTintManager;
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -70,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
         Glide.with(this)
                 .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496372638951&di=be636f1362f06d68b902b8115cda13dc&imgtype=0&src=http%3A%2F%2Fd.5857.com%2Fxgs_150428%2Fdesk_005.jpg")
                 .into(mCiv);
+        //设置沉浸式状态栏
+        SystemBarTintManager tintManager = new SystemBarTintManager(this);
+        tintManager.setStatusBarTintEnabled(true);
+        tintManager.setStatusBarTintResource(R.color.boxing_colorAccent);//通知栏所需颜色
     }
 
     private void initAdaater() {
