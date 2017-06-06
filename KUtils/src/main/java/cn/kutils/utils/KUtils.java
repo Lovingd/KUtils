@@ -1,4 +1,4 @@
-package cn.kutils;
+package cn.kutils.utils;
 
 import android.util.Log;
 
@@ -6,7 +6,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.text.DecimalFormat;
 
-public class FileSizeUtil {
+
+/**
+ * 创建时间：2017/6/6  上午7:45
+ * 创建人：赵文贇
+ * 类描述：常用工具类
+ * 包名：cn.kutils
+ * 待我代码编好，娶你为妻可好。
+ */
+public final class KUtils {
+
     public static final int SIZETYPE_B = 1;//获取文件大小单位为B的double值
     public static final int SIZETYPE_KB = 2;//获取文件大小单位为KB的double值
     public static final int SIZETYPE_MB = 3;//获取文件大小单位为MB的double值

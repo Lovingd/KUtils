@@ -4,9 +4,14 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.util.ArrayMap;
 
 
+import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 import cn.kutils.R;
 
@@ -115,6 +120,7 @@ public class AppManager {
         activityStack.getLast().overridePendingTransition(R.anim.base_slide_right_in, R.anim.slide_out_to_right);
         if (isClose) finishActivity(activityStack.getLast());
     }
+
     /**
      * 跳转下个页面
      *
@@ -125,6 +131,7 @@ public class AppManager {
         activityStack.getLast().overridePendingTransition(R.anim.base_slide_right_in, R.anim.slide_out_to_right);
         if (isClose) finishActivity(activityStack.getLast());
     }
+
     /**
      * 跳转下个页面
      *
@@ -170,18 +177,49 @@ public class AppManager {
         } catch (Exception e) {
         }
     }
+
     /**
      * 跳转下个页面(无动画)
      *
      * @param cls
      */
-    public void toNextPage(Class<?> cls, boolean isClose,boolean isAnia) {
+    public void toNextPage(Class<?> cls, boolean isClose, boolean isAnia) {
         activityStack.getLast().startActivity(new Intent(activityStack.getLast(), cls));
         if (isAnia)
-        activityStack.getLast().overridePendingTransition(R.anim.base_slide_right_in, R.anim.slide_out_to_right);
+            activityStack.getLast().overridePendingTransition(R.anim.base_slide_right_in, R.anim.slide_out_to_right);
         if (isClose) finishActivity(activityStack.getLast());
     }
-    public int ActivityStackSize() {
-        return activityStack == null ? 0 : activityStack.size();
+
+    /**
+     * 获取栈顶Activity
+     *
+     * @return 栈顶Activity
+     */
+    public static Activity getTopActivity() {
+        try {
+            Class activityThreadClass = Class.forName("android.app.ActivityThread");
+            Object activityThread = activityThreadClass.getMethod("currentActivityThread").invoke(null);
+            Field activitiesField = activityThreadClass.getDeclaredField("mActivities");
+            activitiesField.setAccessible(true);
+            Map activities = null;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+                activities = (HashMap) activitiesField.get(activityThread);
+            } else {
+                activities = (ArrayMap) activitiesField.get(activityThread);
+            }
+            for (Object activityRecord : activities.values()) {
+                Class activityRecordClass = activityRecord.getClass();
+                Field pausedField = activityRecordClass.getDeclaredField("paused");
+                pausedField.setAccessible(true);
+                if (!pausedField.getBoolean(activityRecord)) {
+                    Field activityField = activityRecordClass.getDeclaredField("activity");
+                    activityField.setAccessible(true);
+                    return (Activity) activityField.get(activityRecord);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

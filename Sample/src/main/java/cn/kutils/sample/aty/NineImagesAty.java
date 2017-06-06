@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.bumptech.glide.util.Util;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +15,7 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.kutils.FileSizeUtil;
+import cn.kutils.utils.KUtils;
 import cn.kutils.boxing.Boxing;
 import cn.kutils.boxing.impl.ui.BoxingActivity;
 import cn.kutils.boxing.model.config.BoxingConfig;
@@ -29,7 +27,8 @@ import cn.kutils.view.nineimages.ImageInfo;
 import cn.kutils.view.nineimages.NineGridView;
 import cn.kutils.view.nineimages.preview.NineGridViewClickAdapter;
 
-import static cn.kutils.FileSizeUtil.SIZETYPE_MB;
+import static cn.kutils.utils.KUtils.SIZETYPE_MB;
+
 
 /**
  * 创建时间：2017/6/5  下午2:28
@@ -82,7 +81,7 @@ public class NineImagesAty extends AppCompatActivity {
         ArrayList<String> a = new ArrayList<>();
         ArrayList<File> files = new ArrayList<>();
         for (int i = 0; i < medias.size(); i++) {
-            a.add(String.valueOf(FileSizeUtil.getFileOrFilesSize(medias.get(i).getPath(), SIZETYPE_MB))+ "Mb");
+            a.add(String.valueOf(KUtils.getFileOrFilesSize(medias.get(i).getPath(), SIZETYPE_MB))+ "Mb");
             files.add(new File(medias.get(i).getPath()));
         }
         append("选择图片" + medias.size() + "张,原图大小(依次:):" + a );
@@ -98,7 +97,7 @@ public class NineImagesAty extends AppCompatActivity {
                 ArrayList<String> c = new ArrayList<>();
                 List<ImageInfo> list = new ArrayList<>();
                 for (int i = 0; i < fileList.size(); i++) {
-                    c.add(String.valueOf(FileSizeUtil.getFileOrFilesSize(fileList.get(i).getPath(), SIZETYPE_MB))+ "Mb");
+                    c.add(String.valueOf(KUtils.getFileOrFilesSize(fileList.get(i).getPath(), SIZETYPE_MB))+ "Mb");
                     list.add(new ImageInfo(fileList.get(i).getPath(), fileList.get(i).getPath()));
                 }
                 append("张图片压缩完成,大小依次:" + c );
